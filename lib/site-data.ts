@@ -4,7 +4,7 @@ export const siteConfig = {
   title: 'Full-Stack Developer & AI Automation Expert',
   description:
     'Full-stack developer specializing in AI automation, intelligent web applications, and scalable systems. Building real-world products from health tech to course management platforms.',
-  url: 'https://mokasimumer.vercel.app',
+  url: 'https://portfolio-website-o9s5.vercel.app',
   github: 'https://github.com/MokasimUmer',
   githubUsername: 'MokasimUmer',
   avatar: 'https://avatars.githubusercontent.com/u/117762751?v=4',

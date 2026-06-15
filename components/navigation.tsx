@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { navItems } from '@/lib/site-data';
 import { scrollToSection } from '@/lib/scroll';
+import { ThemeToggle } from '@/components/theme-toggle';
 import { useScrollSpy } from '@/hooks/use-scroll-spy';
 
 export function Navigation() {
@@ -63,6 +64,8 @@ export function Navigation() {
         </div>
 
         <div className="flex items-center gap-3">
+          <ThemeToggle />
+
           <motion.button
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -107,6 +110,10 @@ export function Navigation() {
                   {item.label}
                 </button>
               ))}
+              <div className="flex items-center gap-3 px-4 py-2">
+                <span className="text-sm text-foreground/70">Theme</span>
+                <ThemeToggle />
+              </div>
               <button
                 onClick={() => handleNavClick('contact')}
                 className="mt-2 px-4 py-3 rounded-full bg-primary text-primary-foreground font-medium text-sm text-center"
