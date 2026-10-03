@@ -49,8 +49,8 @@ export function HeroSection() {
           </p>
           <p>
             At INSA I turned OpenDaylight into Insa-dlux so operators could see the network again.
-            At Kegeberew I wrote the Spring Boot and MySQL side of a hospital system. I study
-            Software Engineering at ASTU.
+            At Kegeberew I wrote the Spring Boot and MySQL side of a hospital system. Software
+            Engineering coursework at ASTU is done. I am open for work.
           </p>
         </div>
       </div>

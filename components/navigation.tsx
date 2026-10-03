@@ -66,6 +66,8 @@ export function Navigation() {
           </div>
           <p className="mt-5 font-mono text-[11px] leading-relaxed text-muted-foreground">
             {siteConfig.location}
+            <br />
+            {siteConfig.now}
           </p>
           <nav className="mt-14" aria-label="Sections">
             <IndexList activeSection={activeSection} onSelect={handleNavClick} />

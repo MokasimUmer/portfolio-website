@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: 'MK',
   title: 'Software developer. Trains frontier models.',
   description:
-    'Mohammed Kasim is a full-stack developer in Addis Ababa who trains frontier AI models. SDN tools at INSA, hospital backends at Kegeberew, Software Engineering at ASTU.',
+    'Mohammed Kasim is a full-stack developer in Addis Ababa, open for work. He trains frontier AI models. SDN tools at INSA, hospital backends at Kegeberew, Software Engineering coursework at ASTU complete.',
   url: 'https://portfolio-website-o9s5.vercel.app',
   github: 'https://github.com/MoKasimUmer',
   githubUsername: 'MoKasimUmer',
@@ -12,8 +12,8 @@ export const siteConfig = {
   phone: '+251927937230',
   phoneDisplay: '+251 92 793 7230',
   location: 'Addis Ababa, Ethiopia',
-  tagline: 'Full-stack developer in Addis Ababa. I train frontier AI models.',
-  now: 'Software Engineering at ASTU, through July 2026.',
+  tagline: 'Full-stack developer in Addis Ababa. Open for work. I train frontier AI models.',
+  now: 'Open for work.',
   since: '2022',
   resume: '/mohammed-kasim-resume.pdf',
 } as const;
@@ -135,7 +135,7 @@ export const education = [
     period: 'May 2022 — Jul 2026',
     place: 'Adama, Ethiopia',
     description:
-      'Coursework in full-stack web development, algorithms, data structures, object-oriented programming, and Java.',
+      'Coursework completed: full-stack web development, algorithms, data structures, object-oriented programming, and Java.',
   },
 ] as const;
 

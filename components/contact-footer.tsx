@@ -28,7 +28,8 @@ export function ContactFooter() {
         <div className="grid lg:grid-cols-[minmax(0,22rem)_1fr] gap-12 lg:gap-20 items-start">
           <div className="space-y-6">
             <p className="text-[1.05rem] leading-relaxed text-foreground/80">
-              Email or a call. I am in Addis Ababa. If it is a real problem, I will write back.
+              Email or a call. I am in Addis Ababa and open for work. If it is a real problem, I
+              will write back.
             </p>
             <a
               href={`mailto:${siteConfig.email}`}
