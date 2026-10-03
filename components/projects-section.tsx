@@ -1,140 +1,85 @@
-'use client';
-
-import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
 import { projects, siteConfig } from '@/lib/site-data';
+import { SectionLabel } from '@/components/section-label';
 
 export function ProjectsSection() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
-
   return (
-    <section id="projects" className="py-20 px-6 bg-card/30">
-      <div className="max-w-6xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold mb-4 text-center"
-        >
-          Featured Projects
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="text-foreground/60 text-center max-w-2xl mx-auto mb-16"
-        >
-          Real projects from my GitHub — health tech, AI education, fleet management, and more
-        </motion.p>
+    <section id="work" className="px-6 md:px-14 lg:px-20 py-20 md:py-24 border-t border-border">
+      <SectionLabel index="02 — Work">Selected work</SectionLabel>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {projects.map((project) => (
-            <motion.div
-              key={project.title}
-              variants={itemVariants}
-              whileHover={{ y: -5 }}
-              className="group relative bg-background border border-border rounded-lg overflow-hidden transition-all hover:border-primary/50"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+      <p className="max-w-xl text-foreground/75 leading-relaxed mb-12 md:mb-16">
+        Paid posts first, then the public repos. Not a deck.
+      </p>
 
-              <div className="relative p-6 h-full flex flex-col">
-                {'featured' in project && project.featured && (
-                  <span className="inline-block w-fit mb-3 px-2 py-0.5 text-xs font-semibold rounded-full bg-accent/20 text-accent">
-                    Featured
-                  </span>
-                )}
+      <ol className="divide-y divide-border border-y border-border">
+        {projects.map((project, index) => {
+          const hasLive = 'live' in project && project.live && project.link;
+          const hasSource = Boolean(project.github);
 
-                <h3 className="text-xl font-bold mb-3 group-hover:text-accent transition-colors">
-                  {project.title}
-                </h3>
+          return (
+            <li key={project.title} className="py-8 md:py-10">
+              <div className="grid md:grid-cols-[3.5rem_1fr_auto] gap-3 md:gap-8 items-baseline">
+                <span className="font-mono text-[11px] tabular-nums text-muted-foreground">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
 
-                <p className="text-foreground/70 mb-4 flex-grow">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 bg-primary/20 text-primary text-xs rounded-full font-medium"
-                    >
-                      {tag}
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                    <h3 className="display text-2xl md:text-3xl font-medium tracking-tight">
+                      {project.title}
+                    </h3>
+                    <span className="font-mono text-[11px] text-muted-foreground">
+                      {project.year}
                     </span>
-                  ))}
+                  </div>
+                  <p className="mt-3 max-w-xl text-foreground/75 leading-relaxed">
+                    {project.description}
+                  </p>
+                  <p className="mt-3 font-mono text-[11px] tracking-wide text-muted-foreground">
+                    {project.tags.join(' · ')}
+                  </p>
                 </div>
 
-                <div className="flex gap-3">
-                  <motion.a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
-                  >
-                    <ExternalLink size={16} />
-                    View
-                  </motion.a>
-                  <motion.a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 px-4 py-2 border border-primary text-primary rounded-lg text-sm font-medium hover:bg-primary/10 transition-colors"
-                  >
-                    <Github size={16} />
-                    Code
-                  </motion.a>
-                </div>
+                {(hasLive || hasSource) && (
+                  <div className="flex gap-5 font-mono text-[11px] tracking-[0.14em] uppercase md:pt-2">
+                    {hasLive && project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ink-link underline"
+                      >
+                        Live
+                      </a>
+                    )}
+                    {hasSource && project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ink-link underline"
+                      >
+                        Source
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
-            </motion.div>
-          ))}
-        </motion.div>
+            </li>
+          );
+        })}
+      </ol>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="mt-16 text-center"
+      <p className="mt-10 font-mono text-[11px] text-muted-foreground">
+        Public code on{' '}
+        <a
+          href={siteConfig.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="ink-link underline text-foreground"
         >
-          <motion.a
-            href={siteConfig.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-block px-8 py-3 border border-accent text-accent rounded-full font-semibold hover:bg-accent/10 transition-colors"
-          >
-            View All Projects on GitHub
-          </motion.a>
-        </motion.div>
-      </div>
+          github.com/{siteConfig.githubUsername}
+        </a>
+      </p>
     </section>
   );
 }

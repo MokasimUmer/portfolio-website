@@ -1,36 +1,40 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Fraunces, IBM_Plex_Mono } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { ThemeProvider } from '@/components/theme-provider';
 import { siteConfig } from '@/lib/site-data';
 import './globals.css';
 
-const geistSans = Geist({
+const display = Fraunces({
   subsets: ['latin'],
-  variable: '--font-geist-sans',
+  variable: '--font-display',
+  display: 'swap',
 });
 
-const geistMono = Geist_Mono({
+const ibm = IBM_Plex_Mono({
   subsets: ['latin'],
-  variable: '--font-geist-mono',
+  weight: ['400', '500'],
+  variable: '--font-ibm',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | ${siteConfig.title}`,
-    template: `%s | ${siteConfig.name}`,
+    default: `${siteConfig.name} — ${siteConfig.title}`,
+    template: `%s — ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [
     'Mohammed Kasim',
-    'MokasimUmer',
-    'Full-Stack Developer',
-    'AI Automation',
-    'Next.js',
-    'Portfolio',
-    'Health Tech',
-    'Web Developer',
+    'MoKasimUmer',
+    'Full-stack developer',
+    'Frontier models',
+    'INSA',
+    'Kegeberew',
+    'ASTU',
+    'Addis Ababa',
+    'Software Engineering',
   ],
   authors: [{ name: siteConfig.name, url: siteConfig.github }],
   creator: siteConfig.name,
@@ -38,7 +42,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: siteConfig.url,
-    title: `${siteConfig.name} | ${siteConfig.title}`,
+    title: `${siteConfig.name} — ${siteConfig.title}`,
     description: siteConfig.description,
     siteName: siteConfig.name,
     images: [
@@ -51,8 +55,8 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: `${siteConfig.name} | ${siteConfig.title}`,
+    card: 'summary',
+    title: `${siteConfig.name} — ${siteConfig.title}`,
     description: siteConfig.description,
     images: [siteConfig.avatar],
   },
@@ -75,10 +79,10 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className={`${display.variable} ${ibm.variable}`}
     >
-      <body className="font-sans antialiased bg-background text-foreground">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+      <body className="antialiased bg-background text-foreground">
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}

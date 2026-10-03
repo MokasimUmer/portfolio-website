@@ -1,99 +1,57 @@
-'use client';
-
-import { motion } from 'framer-motion';
-import { experiences } from '@/lib/site-data';
+import { education, experiences } from '@/lib/site-data';
+import { SectionLabel } from '@/components/section-label';
 
 export function ExperienceSection() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6 },
-    },
-  };
-
   return (
-    <section id="experience" className="py-20 px-6">
-      <div className="max-w-4xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold mb-16 text-center"
-        >
-          Professional Experience
-        </motion.h2>
+    <section id="record" className="px-6 md:px-14 lg:px-20 py-20 md:py-24 border-t border-border">
+      <SectionLabel index="04 — Record">A short log</SectionLabel>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          className="space-y-8"
-        >
-          {experiences.map((experience, index) => (
-            <motion.div
-              key={experience.title}
-              variants={itemVariants}
-              className="relative group"
-            >
-              <div className="hidden md:block absolute -left-12 top-6 w-8 h-8 bg-primary rounded-full border-4 border-background flex items-center justify-center">
-                <div className="w-3 h-3 bg-accent rounded-full" />
-              </div>
-              {index !== experiences.length - 1 && (
-                <div className="hidden md:block absolute -left-8 top-16 w-1 h-24 bg-gradient-to-b from-primary to-transparent" />
-              )}
-
-              <motion.div
-                whileHover={{ x: 5 }}
-                className="ml-0 md:ml-12 p-6 bg-card border border-border rounded-lg hover:border-primary/50 transition-colors"
-              >
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <div>
-                    <h3 className="text-2xl font-bold text-primary mb-1">
-                      {experience.title}
-                    </h3>
-                    <p className="text-accent font-semibold">{experience.company}</p>
-                  </div>
-                  <motion.span
-                    whileHover={{ scale: 1.05 }}
-                    className="mt-2 md:mt-0 inline-block px-4 py-2 bg-primary/20 text-primary rounded-full text-sm font-medium"
-                  >
-                    {experience.period}
-                  </motion.span>
-                </div>
-
-                <p className="text-foreground/80 mb-4 leading-relaxed">
-                  {experience.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {experience.highlights.map((highlight) => (
-                    <motion.span
-                      key={highlight}
-                      whileHover={{ scale: 1.05 }}
-                      className="px-3 py-1 bg-background border border-border rounded-full text-xs font-medium text-foreground/70 hover:text-accent hover:border-accent transition-colors"
-                    >
-                      {highlight}
-                    </motion.span>
-                  ))}
-                </div>
-              </motion.div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
+      <RecordGroup heading="Jobs" entries={experiences} />
+      <RecordGroup heading="School" entries={education} />
     </section>
+  );
+}
+
+function RecordGroup({
+  heading,
+  entries,
+}: {
+  heading: string;
+  entries: readonly {
+    title: string;
+    company: string;
+    period: string;
+    place: string;
+    description: string;
+  }[];
+}) {
+  return (
+    <div className="max-w-3xl mb-14 last:mb-0">
+      <h3 className="font-mono text-[11px] tracking-[0.18em] uppercase text-muted-foreground mb-4">
+        {heading}
+      </h3>
+      <ol className="divide-y divide-border border-y border-border">
+        {entries.map((entry) => (
+          <li
+            key={`${entry.title}-${entry.period}`}
+            className="py-8 grid sm:grid-cols-[9.5rem_1fr] gap-2 sm:gap-10"
+          >
+            <p className="font-mono text-[11px] tracking-wide text-muted-foreground pt-1">
+              {entry.period}
+            </p>
+            <div>
+              <h4 className="display text-xl md:text-2xl font-medium tracking-tight">
+                {entry.title}
+              </h4>
+              <p className="mt-1 text-sm text-foreground/70">
+                {entry.company}
+                <span className="text-muted-foreground"> · {entry.place}</span>
+              </p>
+              <p className="mt-3 leading-relaxed text-foreground/80">{entry.description}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
   );
 }

@@ -1,149 +1,155 @@
 export const siteConfig = {
   name: 'Mohammed Kasim',
-  shortName: 'Mokasim',
-  title: 'Full-Stack Developer & AI Automation Expert',
+  shortName: 'MK',
+  title: 'Software developer. Trains frontier models.',
   description:
-    'Full-stack developer specializing in AI automation, intelligent web applications, and scalable systems. Building real-world products from health tech to course management platforms.',
+    'Mohammed Kasim is a full-stack developer in Addis Ababa who trains frontier AI models. SDN tools at INSA, hospital backends at Kegeberew, Software Engineering at ASTU.',
   url: 'https://portfolio-website-o9s5.vercel.app',
-  github: 'https://github.com/MokasimUmer',
-  githubUsername: 'MokasimUmer',
-  avatar: 'https://avatars.githubusercontent.com/u/117762751?v=4',
+  github: 'https://github.com/MoKasimUmer',
+  githubUsername: 'MoKasimUmer',
+  avatar: '/mohammed-kasim.png',
   email: 'mohammedkasim81112@gmail.com',
-  location: 'Available Worldwide · Remote',
-  bio: 'Programming enthusiast and Linux advocate building intelligent systems that solve real problems — from health kiosks to AI-powered education platforms.',
-  tagline:
-    'I build intelligent automation systems and scalable web applications, turning complex challenges into elegant, production-ready solutions.',
-  stats: {
-    projects: '13+',
-    experience: '4+',
-    repos: '13',
-  },
+  phone: '+251927937230',
+  phoneDisplay: '+251 92 793 7230',
+  location: 'Addis Ababa, Ethiopia',
+  tagline: 'Full-stack developer in Addis Ababa. I train frontier AI models.',
+  now: 'Software Engineering at ASTU, through July 2026.',
+  since: '2022',
+  resume: '/mohammed-kasim-resume.pdf',
 } as const;
 
 export const socialLinks = [
   {
     label: 'GitHub',
     href: siteConfig.github,
-    username: siteConfig.githubUsername,
+    username: `@${siteConfig.githubUsername}`,
   },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/mokasimumer',
-    username: 'mokasimumer',
+    href: 'https://www.linkedin.com/in/mohammed-kasim-88a85a2b3',
+    username: 'mohammed-kasim-88a85a2b3',
   },
   {
     label: 'Email',
     href: `mailto:${siteConfig.email}`,
     username: siteConfig.email,
   },
+  {
+    label: 'Phone',
+    href: `tel:${siteConfig.phone}`,
+    username: siteConfig.phoneDisplay,
+  },
 ] as const;
 
 export const navItems = [
-  { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'automation', label: 'AI' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'opening', label: 'Opening' },
+  { id: 'work', label: 'Work' },
+  { id: 'practice', label: 'Practice' },
+  { id: 'record', label: 'Record' },
+  { id: 'contact', label: 'Write' },
 ] as const;
 
 export const projects = [
   {
-    title: 'Smart Health Kiosk',
+    title: 'Insa-dlux',
+    year: '2025',
     description:
-      'Interactive health kiosk platform with patient-facing workflows, vitals tracking, and a modern JavaScript frontend for clinical environments.',
-    tags: ['JavaScript', 'Health Tech', 'Full-Stack', 'UI/UX'],
-    link: 'https://github.com/MokasimUmer/Smart_Health_Kiosk',
-    github: 'https://github.com/MokasimUmer/Smart_Health_Kiosk',
-    featured: true,
+      'A customized SDN console on OpenDaylight for INSA. Restored L2-switch after dead dependencies, visualized the topology, and updated YANG models so the controller stayed compatible.',
+    tags: ['OpenDaylight', 'JavaScript', 'YANG'],
+    link: 'https://github.com/MokasimUmer/Insa-dlux',
+    github: 'https://github.com/MokasimUmer/Insa-dlux',
+  },
+  {
+    title: 'medicalKTS',
+    year: '2024—25',
+    description:
+      'Spring Boot and MySQL backend for a hospital system at Kegeberew — APIs and database work that has to stay fast when the ward is busy.',
+    tags: ['Spring Boot', 'MySQL'],
+    link: 'https://github.com/redu95/medicalKTS',
+    github: 'https://github.com/redu95/medicalKTS',
+  },
+  {
+    title: 'AmuQ',
+    year: '2026',
+    description:
+      'Event board for nights that sell out. Billboard, search, host, book — find what’s on and charge the night.',
+    tags: ['Next.js', 'Events'],
+    link: 'https://amuq-chi.vercel.app/',
+    github: undefined,
+    live: true,
+  },
+  {
+    title: 'LD Bootcamp',
+    year: '2026',
+    description:
+      'Africa Free Routing Lightning developer bootcamp. Next.js and NestJS: curriculum, live quizzes, attendance, and satoshi payouts over LND.',
+    tags: ['Next.js', 'NestJS', 'Lightning'],
+    link: 'https://ld-bootcamp-web.vercel.app/',
+    github: 'https://github.com/MokasimUmer/LD_Bootcamp',
+    live: true,
+  },
+  {
+    title: 'Smart Health Kiosk',
+    year: '2025',
+    description:
+      'A kiosk patients walk up to. Check-in, vitals, and a screen that has to survive glare, gloves, and a standing distance.',
+    tags: ['Python', 'Health'],
+    link: 'https://github.com/MokasimUmer/Smart-Health-Kiosk',
+    github: 'https://github.com/MokasimUmer/Smart-Health-Kiosk',
   },
   {
     title: 'FTMS',
+    year: '2025',
     description:
-      'Full-stack task and fleet management system with real-time dashboards, deployed and production-ready on Vercel.',
-    tags: ['TypeScript', 'Next.js', 'Vercel', 'Dashboard'],
+      'Task and fleet ops in one dashboard. The unglamorous kind of app that has to stay up and stay obvious.',
+    tags: ['TypeScript', 'Next.js'],
     link: 'https://ftms-two.vercel.app',
     github: 'https://github.com/MokasimUmer/FTMS',
-    featured: true,
-  },
-  {
-    title: 'ASTU Course Management',
-    description:
-      'AI-based course management system that predicts optimized, personalized learning paths to handle add/drop complications.',
-    tags: ['Python', 'AI/ML', 'Education', 'Optimization'],
-    link: 'https://github.com/MokasimUmer/Astu_Course_Managment',
-    github: 'https://github.com/MokasimUmer/Astu_Course_Managment',
-    featured: true,
-  },
-  {
-    title: 'CBSD Project',
-    description:
-      'TypeScript-based project exploring structured software design patterns with a focus on maintainable, type-safe architecture.',
-    tags: ['TypeScript', 'Architecture', 'Full-Stack'],
-    link: 'https://github.com/MokasimUmer/CBSD_PROJECT',
-    github: 'https://github.com/MokasimUmer/CBSD_PROJECT',
-  },
-  {
-    title: 'Dev Dating App',
-    description:
-      'Cross-platform mobile application built with Flutter/Dart, connecting developers through shared interests and project collaboration.',
-    tags: ['Flutter', 'Dart', 'Mobile', 'Cross-Platform'],
-    link: 'https://github.com/MokasimUmer/dev-dating-app',
-    github: 'https://github.com/MokasimUmer/dev-dating-app',
-  },
-  {
-    title: 'HalalConnect',
-    description:
-      'Community platform concept connecting users with halal services, businesses, and resources in a unified digital experience.',
-    tags: ['Community', 'Web App', 'Full-Stack'],
-    link: 'https://github.com/MokasimUmer/HalalConnect',
-    github: 'https://github.com/MokasimUmer/HalalConnect',
+    live: true,
   },
 ] as const;
 
 export const experiences = [
   {
-    title: 'Independent Full-Stack Developer',
-    company: 'Freelance & Open Source',
-    period: '2022 – Present',
+    title: 'SDN developer',
+    company: 'Information Network Security Agency (INSA)',
+    period: 'Jun 2025 — Sep 2025',
+    place: 'Addis Ababa',
     description:
-      'Building and shipping full-stack applications, health tech solutions, and AI-powered education tools. Maintaining 13+ public repositories and deploying production apps on Vercel.',
-    highlights: ['Full-Stack Development', 'AI Integration', 'Open Source', 'Vercel Deployment'],
+      'Built Insa-dlux on OpenDaylight: rewrote worn-out dependencies so L2-switch worked again, customized the JavaScript front end to visualize topology, and updated YANG models.',
   },
   {
-    title: 'Health Tech Developer',
-    company: 'Smart Health Kiosk',
-    period: '2025 – Present',
+    title: 'Back-end developer',
+    company: 'Kegeberew Technology Solutions (KTS)',
+    period: 'Jun 2024 — Oct 2025',
+    place: 'Addis Ababa',
     description:
-      'Leading development of an interactive health kiosk platform with patient workflows, vitals integration, and a polished clinical UI.',
-    highlights: ['Health Tech', 'JavaScript', 'UX Design', 'Production Systems'],
+      'Spring Boot and MySQL APIs, including the back end of a hospital management system. Database work, not slides.',
   },
+] as const;
+
+export const education = [
   {
-    title: 'AI & Education Systems',
-    company: 'ASTU Course Management',
-    period: '2025 – 2026',
+    title: 'Software Engineering',
+    company: 'Adama Science and Technology University',
+    period: 'May 2022 — Jul 2026',
+    place: 'Adama, Ethiopia',
     description:
-      'Designed an AI-driven course management system that generates personalized learning paths and handles complex enrollment scenarios.',
-    highlights: ['Python', 'Machine Learning', 'Education Tech', 'Data Modeling'],
+      'Coursework in full-stack web development, algorithms, data structures, object-oriented programming, and Java.',
   },
 ] as const;
 
 export const skillGroups = [
   {
-    category: 'Frontend',
-    items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Flutter'],
+    category: 'Languages',
+    items: ['JavaScript', 'Python', 'Java'],
   },
   {
-    category: 'Backend',
-    items: ['Node.js', 'Python', 'FastAPI', 'PostgreSQL', 'MongoDB', 'REST APIs'],
+    category: 'Web & APIs',
+    items: ['Next.js', 'Node.js', 'Express.js', 'Spring Boot'],
   },
   {
-    category: 'AI & Automation',
-    items: ['OpenAI API', 'LangChain', 'Prompt Engineering', 'ML Pipelines', 'Automation Scripts'],
-  },
-  {
-    category: 'Tools & Platforms',
-    items: ['Docker', 'Linux', 'Git', 'Vercel', 'Netlify', 'VS Code'],
+    category: 'Data & ops',
+    items: ['MySQL', 'MongoDB', 'Docker', 'SDLC'],
   },
 ] as const;
