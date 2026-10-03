@@ -19,7 +19,8 @@ export function HeroSection() {
         </h1>
         <a
           href={siteConfig.resume}
-          download="Mohammed_Kasim_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           className="mb-1 font-bold text-lg md:text-xl text-primary underline underline-offset-4 decoration-2"
         >
           Resume

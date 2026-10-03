@@ -52,6 +52,8 @@ export function ContactFooter() {
               <li>
                 <a
                   href={siteConfig.resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="font-mono text-[12px] text-muted-foreground hover:text-primary transition-colors"
                 >
                   Resume — PDF
